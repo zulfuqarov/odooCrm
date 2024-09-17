@@ -20,36 +20,26 @@ const ActionPages = () => {
   };
 
   const handleDrop = (event) => {
-    event.preventDefault();
-    const target = event.target;
+    if (event.target.classList.contains("CardRow")) {
+      if (draggedElement) {
 
-    if (target.classList.contains("CardRow") && draggedElement) {
-      // Get all child elements of the target
-      const children = Array.from(target.children);
+        const headerDiv = Array.from(event.target.children).find((child) =>
+          child.classList.contains("o_kanban_header")
+        );
 
-      // Find the drop target element
-      let dropTarget = null;
+        if (headerDiv) {
 
-      for (let i = 0; i < children.length; i++) {
-        const child = children[i];
-        if (child === draggedElement) continue;
+          event.target.insertBefore(
+            draggedElement,
+            headerDiv.nextElementSibling
+          );
+        } else {
 
-        const rect = child.getBoundingClientRect();
-        const mouseY = event.clientY;
-
-        if (mouseY < rect.top + rect.height / 2) {
-          dropTarget = child;
-          break;
+          event.target.prepend(draggedElement);
         }
-      }
 
-      if (dropTarget) {
-        target.insertBefore(draggedElement, dropTarget);
-      } else {
-        target.appendChild(draggedElement);
+        setDraggedElement(null);
       }
-
-      setDraggedElement(null);
     }
   };
 
