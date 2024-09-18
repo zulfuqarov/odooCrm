@@ -3,7 +3,7 @@ import KanbanView from "../components/KanbanView";
 import { ContextCrm } from "../context/Context";
 
 const ActionPages = () => {
-  const context = useContext(ContextCrm);
+  const { getData, data, dataState } = useContext(ContextCrm);
 
   const [draggedElement, setDraggedElement] = useState(null);
 
@@ -22,19 +22,16 @@ const ActionPages = () => {
   const handleDrop = (event) => {
     if (event.target.classList.contains("CardRow")) {
       if (draggedElement) {
-
         const headerDiv = Array.from(event.target.children).find((child) =>
           child.classList.contains("o_kanban_header")
         );
 
         if (headerDiv) {
-
           event.target.insertBefore(
             draggedElement,
             headerDiv.nextElementSibling
           );
         } else {
-
           event.target.prepend(draggedElement);
         }
 
@@ -44,8 +41,9 @@ const ActionPages = () => {
   };
 
   useEffect(() => {
-    context.getData();
-  }, []);
+    getData();
+    console.log(dataState);
+  }, [data]);
 
   return (
     <div className="o_action_manager">

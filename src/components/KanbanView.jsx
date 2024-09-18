@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import KanbanGroup from "./KanbanGroup";
 import { ContextCrm } from "../context/Context";
+import AddStageCategory from "./AddStageCategory";
 
 const KanbanView = ({ handleDragStart, handleDragOver, handleDrop }) => {
   const context = useContext(ContextCrm);
@@ -10,8 +11,9 @@ const KanbanView = ({ handleDragStart, handleDragOver, handleDrop }) => {
       <div className="o_content">
         <div className="o_kanban_renderer o_renderer d-flex o_kanban_grouped align-content-stretch">
           {data &&
-            Object.keys(data).map((category) => (
+            Object.keys(data).map((category, index) => (
               <KanbanGroup
+                key={index}
                 category={category}
                 items={data[category]}
                 handleDragStart={handleDragStart}
@@ -19,6 +21,8 @@ const KanbanView = ({ handleDragStart, handleDragOver, handleDrop }) => {
                 handleDrop={handleDrop}
               />
             ))}
+
+          <AddStageCategory />
         </div>
       </div>
     </div>

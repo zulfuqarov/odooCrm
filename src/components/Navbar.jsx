@@ -45,7 +45,7 @@ const Navbar = () => {
           alt=""
         />
 
-        <span class="o_menu_brand d-flex ms-3 pe-0">CRM</span>
+        <span className="o_menu_brand d-flex ms-3 pe-0">CRM</span>
       </Link>
       <div
         className="o_menu_sections d-flex flex-grow-1 flex-shrink-1 w-0"

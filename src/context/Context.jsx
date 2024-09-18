@@ -5,7 +5,7 @@ export const ContextCrm = createContext();
 const Context = ({ children }) => {
   const [dataState, setdataState] = useState({});
 
-  const data = [
+  const [data, setdata] = useState([
     {
       id: "1",
       category: "New",
@@ -126,26 +126,36 @@ const Context = ({ children }) => {
         avatar: "/web/image/res.users/5/avatar_128",
       },
     },
-  ];
-
-  const dataApi = {};
+  ]);
 
   const getData = () => {
+    const dataApi = {};
+
     data.forEach((element) => {
       if (!dataApi[element.category]) {
         dataApi[element.category] = [];
       }
 
-      dataApi[element.category].push(element);
+      if (element.title) {
+        dataApi[element.category].push(element);
+      }
     });
     setdataState(dataApi);
+  };
+
+  // add Stage Category
+
+  const addStageCategory = (categoryName) => {
+    setdata([...data, { category: categoryName }]);
   };
 
   return (
     <ContextCrm.Provider
       value={{
+        data,
         dataState,
         getData,
+        addStageCategory,
       }}
     >
       {children}
