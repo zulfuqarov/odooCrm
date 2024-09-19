@@ -9,122 +9,38 @@ const Context = ({ children }) => {
     {
       id: "1",
       category: "New",
-      title: "Devis pour 150 tapis",
-      expectedRevenue: "40,000.00",
-      clientName: "OpenWood",
-      tags: [
-        {
-          id: "1",
-          name: "Product",
-          color: "1",
-        },
-      ],
-      priority: "Medium",
-      user: {
-        id: "2",
-        name: "Mitchell Admin",
-        avatar: "/web/image/res.users/2/avatar_128",
-      },
-    },
-    {
-      id: "1",
-      category: "lost",
-      title: "Devis pour 150 tapis",
-      expectedRevenue: "40,000.00",
-      clientName: "OpenWood",
-      tags: [
-        {
-          id: "1",
-          name: "Product",
-          color: "1",
-        },
-      ],
-      priority: "Medium",
-      user: {
-        id: "2",
-        name: "Mitchell Admin",
-        avatar: "/web/image/res.users/2/avatar_128",
-      },
+      Organization: "ss",
+      contact: "newww",
+      email: "zulfuqarov@gmail.com",
+      phone: "0987654321",
+      price: "299",
     },
     {
       id: "2",
-      category: "New",
-      title: "Project X",
-      expectedRevenue: "50,000.00",
-      clientName: "TechCo",
-      tags: [
-        {
-          id: "2",
-          name: "Service",
-          color: "2",
-        },
-      ],
-      priority: "High",
-      user: {
-        id: "3",
-        name: "Sarah Smith",
-        avatar: "/web/image/res.users/3/avatar_128",
-      },
+      category: "Used",
+      contact: "olduser",
+      Organization: "ss",
+      email: "olduser@example.com",
+      phone: "0123456789",
+      price: "199",
     },
     {
       id: "3",
       category: "Sale",
-      title: "Upgrade Contract",
-      expectedRevenue: "60,000.00",
-      clientName: "EduTech",
-      tags: [
-        {
-          id: "3",
-          name: "Contract",
-          color: "3",
-        },
-      ],
-      priority: "Very High",
-      user: {
-        id: "4",
-        name: "John Doe",
-        avatar: "/web/image/res.users/4/avatar_128",
-      },
+      contact: "discount",
+      Organization: "ss",
+      email: "discount@example.com",
+      phone: "1234567890",
+      price: "99",
     },
     {
       id: "4",
-      category: "Sale",
-      title: "Annual Subscription",
-      expectedRevenue: "100,000.00",
-      clientName: "GlobalCorp",
-      tags: [
-        {
-          id: "4",
-          name: "Subscription",
-          color: "4",
-        },
-      ],
-      priority: "Medium",
-      user: {
-        id: "5",
-        name: "Emily Johnson",
-        avatar: "/web/image/res.users/5/avatar_128",
-      },
-    },
-    {
-      id: "4",
-      category: "Sale",
-      title: "Annual Subscription",
-      expectedRevenue: "100,000.00",
-      clientName: "GlobalCorp",
-      tags: [
-        {
-          id: "4",
-          name: "Subscription",
-          color: "4",
-        },
-      ],
-      priority: "Medium",
-      user: {
-        id: "5",
-        name: "Emily Johnson",
-        avatar: "/web/image/res.users/5/avatar_128",
-      },
+      category: "Premium",
+      contact: "premiumcontact",
+      Organization: "ss",
+      email: "premium@example.com",
+      phone: "0981234567",
+      price: "499",
     },
   ]);
 
@@ -136,7 +52,7 @@ const Context = ({ children }) => {
         dataApi[element.category] = [];
       }
 
-      if (element.title) {
+      if (element.email) {
         dataApi[element.category].push(element);
       }
     });
@@ -144,9 +60,13 @@ const Context = ({ children }) => {
   };
 
   // add Stage Category
-
   const addStageCategory = (categoryName) => {
     setdata([...data, { category: categoryName }]);
+  };
+
+  // add New Contact
+  const addNewContact = (input) => {
+    setdata([...data, input]);
   };
 
   return (
@@ -156,6 +76,7 @@ const Context = ({ children }) => {
         dataState,
         getData,
         addStageCategory,
+        addNewContact,
       }}
     >
       {children}

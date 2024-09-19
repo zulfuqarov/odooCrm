@@ -42,7 +42,8 @@ const ActionPages = () => {
 
   useEffect(() => {
     getData();
-    console.log(dataState);
+    // console.log(dataState);
+    console.log(data)
   }, [data]);
 
   return (

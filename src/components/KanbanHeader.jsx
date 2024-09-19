@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import AddContact from "./AddContact";
 
-const KanbanHeader = ({category}) => {
+const KanbanHeader = ({ category }) => {
+  const [showAddCartd, setShowAddCartd] = useState(false);
+
+  const toggleAddCartd = () => {
+    setShowAddCartd(!showAddCartd);
+  };
   return (
     <div className="o_kanban_header position-sticky top-0 z-1 py-2 pt-print-0">
       <div className="o_kanban_header_title position-relative d-flex lh-lg">
@@ -20,7 +26,10 @@ const KanbanHeader = ({category}) => {
             />
           </button>
         </div>
-        <button className="o_kanban_quick_add d-print-none btn pe-2 me-n2">
+        <button
+          onClick={toggleAddCartd}
+          className="o_kanban_quick_add d-print-none btn pe-2 me-n2"
+        >
           <i
             className="fa fa-plus opacity-75 opacity-100-hover"
             role="img"
@@ -62,6 +71,7 @@ const KanbanHeader = ({category}) => {
           <b>80,000</b>
         </div>
       </div>
+      {showAddCartd && <AddContact categoryName={category}/>}
     </div>
   );
 };
