@@ -1,31 +1,72 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AddContact from "./AddContact";
+import { ContextCrm } from "../context/Context";
 
 const KanbanHeader = ({ category }) => {
+  const { editCategoryName } = useContext(ContextCrm);
+
   const [showAddCartd, setShowAddCartd] = useState(false);
 
   const toggleAddCartd = () => {
     setShowAddCartd(!showAddCartd);
   };
+
+  const [ShowChangeCategroy, setShowChangeCategroy] = useState(false);
+  const toggleChangeCategroy = () => {
+    setShowChangeCategroy(!ShowChangeCategroy);
+  };
+
+  const [categoryInputChange, setcategoryInputChange] = useState(category);
+
+  const handleCategoryChange = (e) => {
+    setcategoryInputChange(e.target.value);
+  };
+
   return (
     <div className="o_kanban_header position-sticky top-0 z-1 py-2 pt-print-0">
       <div className="o_kanban_header_title position-relative d-flex lh-lg">
         <div className="o_column_title flex-grow-1 min-w-0 mw-100 gap-1 d-flex fs-4 fw-bold align-top text-900">
-          <span className="text-truncate">{category}</span>
-        </div>
-        <div className="o_kanban_config d-print-none">
-          <button
-            className="btn px-2 o-dropdown dropdown-toggle dropdown"
-            aria-expanded="false"
-          >
-            <i
-              className="fa fa-gear opacity-50 opacity-100-hover"
-              role="img"
-              aria-label="Settings"
-              title="Settings"
+          {ShowChangeCategroy ? (
+            <input
+              value={categoryInputChange}
+              onChange={handleCategoryChange}
+              type="text"
+              className="border border-gray-300 rounded-md py-1 px-2 focus:outline-none focus:ring focus:ring-blue-300 focus:border-blue-300 placeholder-gray-400 text-sm"
+              placeholder="Type here..."
             />
-          </button>
+          ) : (
+            <span className="text-truncate">{category}</span>
+          )}{" "}
         </div>
+        {ShowChangeCategroy ? (
+          <div className=" d-print-none">
+            <button
+              onClick={() => {
+                toggleChangeCategroy();
+                editCategoryName(categoryInputChange, category);
+              }}
+              className="btn px-2 o-dropdown dropdown-toggle dropdown"
+              aria-expanded="false"
+            >
+              <i className="fa-solid fa-check text-green-400"></i>
+            </button>
+          </div>
+        ) : (
+          <div className="o_kanban_config d-print-none">
+            <button
+              onClick={toggleChangeCategroy}
+              className="btn px-2 o-dropdown dropdown-toggle dropdown"
+              aria-expanded="false"
+            >
+              <i
+                className="fa fa-gear opacity-50 opacity-100-hover"
+                role="img"
+                aria-label="Settings"
+                title="Settings"
+              />
+            </button>
+          </div>
+        )}
         <button
           onClick={toggleAddCartd}
           className="o_kanban_quick_add d-print-none btn pe-2 me-n2"
@@ -71,7 +112,7 @@ const KanbanHeader = ({ category }) => {
           <b>80,000</b>
         </div>
       </div>
-      {showAddCartd && <AddContact categoryName={category}/>}
+      {showAddCartd && <AddContact categoryName={category} />}
     </div>
   );
 };

@@ -3,17 +3,17 @@ import KanbanGroup from "./KanbanGroup";
 import { ContextCrm } from "../context/Context";
 import AddStageCategory from "./AddStageCategory";
 
-const KanbanView = ({ handleDragStart, handleDragOver, handleDrop }) => {
+const KanbanView = ({ handleDragStart, handleDragOver, handleDrop,categoryArry }) => {
   const context = useContext(ContextCrm);
   const data = context.dataState;
   return (
     <div className="o_kanban_view o_crm_kanban_view o_kanban_small_column o_opportunity_kanban o_view_controller o_action ">
       <div className="o_content">
         <div className="o_kanban_renderer o_renderer d-flex o_kanban_grouped align-content-stretch">
-          {data &&
-            Object.keys(data).map((category, index) => (
+          {data && categoryArry &&
+           categoryArry.map((category, index) => (
               <KanbanGroup
-                key={index}
+                index={index}
                 category={category}
                 items={data[category]}
                 handleDragStart={handleDragStart}

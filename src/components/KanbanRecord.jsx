@@ -13,7 +13,7 @@ const KanbanRecord = ({ items, handleDragStart }) => {
         <div className="oe_kanban_content flex-grow-1">
           <div className="oe_kanban_details">
             <strong className="o_kanban_record_title">
-              <span>{items.title}</span>
+              <span>{items.Organization}</span>
             </strong>
           </div>
           <div className="o_kanban_record_subtitle">

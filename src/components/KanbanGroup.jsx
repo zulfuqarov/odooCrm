@@ -5,6 +5,7 @@ import KanbanRecord from "./KanbanRecord";
 const KanbanGroup = ({
   category,
   items,
+  index,
 
   handleDragStart,
   handleDragOver,
@@ -13,9 +14,11 @@ const KanbanGroup = ({
   return (
     <div
       onDragOver={handleDragOver}
-      onDrop={handleDrop}
+      onDrop={(event) => handleDrop(event, index)}
       className="o_kanban_group relative h-[100vh] flex-shrink-0 flex-grow-1 flex-md-grow-0 o_group_draggable CardRow"
       data-id="datapoint_2"
+      onDragStart={(event) => handleDragStart(event, index)}
+      draggable="true"
     >
       <KanbanHeader category={category} />
 

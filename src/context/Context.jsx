@@ -69,14 +69,27 @@ const Context = ({ children }) => {
     setdata([...data, input]);
   };
 
+  // changeCategoryName
+  const editCategoryName = (newCategory, categoryName) => {
+    setdata(
+      data.map((item) =>
+        item.category === categoryName
+          ? { ...item, category: newCategory }
+          : item
+      )
+    );
+  };
+
   return (
     <ContextCrm.Provider
       value={{
         data,
         dataState,
+        setdataState,
         getData,
         addStageCategory,
         addNewContact,
+        editCategoryName
       }}
     >
       {children}
