@@ -41,7 +41,6 @@ const ActionPages = () => {
 
         setDraggedElement(null);
       }
-    } else {
       const newItems = [...categoryArry];
       const [draggedItem] = newItems.splice(draggedIndex, 1);
       newItems.splice(index, 0, draggedItem);
