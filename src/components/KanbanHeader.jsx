@@ -7,8 +7,11 @@ const KanbanHeader = ({ category }) => {
 
   const [showAddCartd, setShowAddCartd] = useState(false);
 
-  const toggleAddCartd = () => {
+  const toggleAddCartd = (e) => {
     setShowAddCartd(!showAddCartd);
+    if (!e.target.classList.contains("o_kanban_quick_add") && showAddCartd) {
+      setShowAddCartd(!showAddCartd);
+    }
   };
 
   const [ShowChangeCategroy, setShowChangeCategroy] = useState(false);

@@ -9,38 +9,47 @@ const Context = ({ children }) => {
     {
       id: "1",
       category: "New",
-      Organization: "ss",
-      contact: "newww",
-      email: "zulfuqarov@gmail.com",
-      phone: "0987654321",
-      price: "299",
+      Create: "ss",
+      fullName: "newww1",
+      Product: "zulfuqarov@gmail.com",
+      Probability: "0987654321",
+      Expected: "299",
     },
     {
       id: "2",
-      category: "Used",
-      contact: "olduser",
-      Organization: "ss",
-      email: "olduser@example.com",
-      phone: "0123456789",
-      price: "199",
+      category: "New2",
+      Create: "ss",
+      fullName: "newww2",
+      Product: "zulfuqarov@gmail.com",
+      Probability: "0987654321",
+      Expected: "299",
     },
     {
       id: "3",
-      category: "Sale",
-      contact: "discount",
-      Organization: "ss",
-      email: "discount@example.com",
-      phone: "1234567890",
-      price: "99",
+      category: "New3",
+      Create: "ss",
+      fullName: "newww3",
+      Product: "zulfuqarov@gmail.com",
+      Probability: "0987654321",
+      Expected: "299",
     },
     {
       id: "4",
-      category: "Premium",
-      contact: "premiumcontact",
-      Organization: "ss",
-      email: "premium@example.com",
-      phone: "0981234567",
-      price: "499",
+      category: "New4",
+      Create: "ss",
+      fullName: "newww4",
+      Product: "zulfuqarov@gmail.com",
+      Probability: "0987654321",
+      Expected: "299",
+    },
+    {
+      id: "4",
+      category: "New5",
+      Create: "ss",
+      fullName: "newww5",
+      Product: "zulfuqarov@gmail.com",
+      Probability: "0987654321",
+      Expected: "299",
     },
   ]);
 
@@ -52,7 +61,7 @@ const Context = ({ children }) => {
         dataApi[element.category] = [];
       }
 
-      if (element.email) {
+      if (element.fullName) {
         dataApi[element.category].push(element);
       }
     });
@@ -89,7 +98,7 @@ const Context = ({ children }) => {
         getData,
         addStageCategory,
         addNewContact,
-        editCategoryName
+        editCategoryName,
       }}
     >
       {children}

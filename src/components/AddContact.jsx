@@ -21,7 +21,7 @@ const AddContact = ({ categoryName }) => {
           <div className="o_wrap_field d-flex d-sm-contents flex-column mb-3 mb-sm-0">
             <div className="o_cell o_wrap_label flex-grow-1 flex-sm-grow-0 w-100 text-break text-900">
               <label className="o_form_label" htmlFor="partner_id_0">
-                Organization / Contact
+                Create
                 <sup
                   className="text-info p-1"
                   data-tooltip-template="web.FieldTooltip"
@@ -44,9 +44,9 @@ const AddContact = ({ categoryName }) => {
                   <div className="o_input_dropdown">
                     <div className="o-autocomplete dropdown flex">
                       <input
-                        value={inputAddContact.Organization || ""}
+                        value={inputAddContact.Create || ""}
                         onChange={handleChangeInput}
-                        name="Organization"
+                        name="Create"
                         type="text"
                         className="o-autocomplete--input o_input"
                         autoComplete="off"
@@ -71,7 +71,7 @@ const AddContact = ({ categoryName }) => {
           <div className="o_wrap_field d-flex d-sm-contents flex-column mb-3 mb-sm-0">
             <div className="o_cell o_wrap_label flex-grow-1 flex-sm-grow-0 w-100 text-break text-900">
               <label className="o_form_label" htmlFor="name_0">
-                Opportunity
+                Full Name
               </label>
             </div>
             <div
@@ -83,14 +83,14 @@ const AddContact = ({ categoryName }) => {
                 className="o_field_widget o_required_modifier o_field_char"
               >
                 <input
-                  value={inputAddContact.contact || ""}
+                  value={inputAddContact.fullName || ""}
                   onChange={handleChangeInput}
-                  name="contact"
+                  name="fullName"
                   className="o_input"
                   id="name_0"
                   type="text"
                   autoComplete="off"
-                  placeholder="e.g. Product Pricing"
+                  placeholder="Full Name"
                 />
               </div>
             </div>
@@ -107,14 +107,14 @@ const AddContact = ({ categoryName }) => {
             >
               <div name="email_from" className="o_field_widget o_field_char">
                 <input
-                  value={inputAddContact.email || ""}
+                  value={inputAddContact.Product || ""}
                   onChange={handleChangeInput}
-                  name="email"
+                  name="Product"
                   className="o_input"
                   id="email_from_0"
                   type="text"
                   autoComplete="off"
-                  placeholder='e.g. "email@address.com"'
+                  placeholder='Product"'
                 />
               </div>
             </div>
@@ -122,7 +122,7 @@ const AddContact = ({ categoryName }) => {
           <div className="o_wrap_field d-flex d-sm-contents flex-column mb-3 mb-sm-0">
             <div className="o_cell o_wrap_label flex-grow-1 flex-sm-grow-0 w-100 text-break text-900">
               <label className="o_form_label" htmlFor="phone_0">
-                Phone
+                Probability
               </label>
             </div>
             <div
@@ -131,14 +131,14 @@ const AddContact = ({ categoryName }) => {
             >
               <div name="phone" className="o_field_widget o_field_char">
                 <input
-                  value={inputAddContact.phone || ""}
+                  value={inputAddContact.Probability || ""}
                   onChange={handleChangeInput}
-                  name="phone"
+                  name="Probability"
                   className="o_input"
                   id="phone_0"
                   type="text"
                   autoComplete="off"
-                  placeholder='e.g. "0123456789"'
+                  placeholder="Probability"
                 />
               </div>
             </div>
@@ -169,14 +169,14 @@ const AddContact = ({ categoryName }) => {
                         </span>
                       </span>
                       <input
-                        value={inputAddContact.price || ""}
+                        value={inputAddContact.Expected || ""}
                         onChange={handleChangeInput}
-                        name="price"
+                        name="Expected"
                         className="o_input flex-grow-1 flex-shrink-1"
                         autoComplete="off"
                         id="expected_revenue_0"
                         type="text"
-                        placeholder="price"
+                        placeholder="Expected Revenue"
                       />
                       <span className="opacity-0">&nbsp;m</span>
                     </div>

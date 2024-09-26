@@ -23,12 +23,8 @@ const KanbanGroup = ({
       <KanbanHeader category={category} />
 
       {items &&
-        items.map((oneMap, index) => (
-          <KanbanRecord
-            key={index}
-            items={oneMap}
-            handleDragStart={handleDragStart}
-          />
+        items.map((oneMap) => (
+          <KanbanRecord items={oneMap} handleDragStart={handleDragStart} />
         ))}
     </div>
   );
